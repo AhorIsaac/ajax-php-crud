@@ -33,8 +33,7 @@
                     </div>
                     <div class="form-group">
                         <label for="description"> Description </label>
-                        <textarea id="description" name="description" class="form-control" cols="" rows="3">
-                            </textarea>
+                        <textarea id="description" name="description" class="form-control" rows="8"></textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-outline-primary" id='submit'>
@@ -103,8 +102,10 @@
     <script src="../public/scripts/popper.min.js"> </script>
     <script src="../public/js/bootstrap.min.js"> </script>
     <script src="../public/font-awesome/js/all.min.js"> </script>
+    <!-- CRUD ON DATA -->
     <script>
-        $(document).on("click", "#submit", function(e) {
+        // Insert Record
+        $(document).on("click", "#submit", (e) => {
             e.preventDefault();
 
             var title = $("#title").val();
@@ -112,25 +113,26 @@
             var submit = $("#submit").val();
 
             $.ajax({
-                url: "insert.php",
+                url: "../processors/insert.php",
                 type: "post",
                 data: {
                     title: title,
                     description: description,
                     submit: submit
                 },
-                success: function(data) {
+                success: (data) => {
                     fetch();
                     $("#result").html(data);
                 }
             });
 
             $("#form")[0].reset();
+            hideAlert();
         });
 
-        function fetch() {
+        const fetch = () => {
             $.ajax({
-                url: "fetch.php",
+                url: "../processors/fetch.php",
                 type: "post",
                 success: function(data) {
                     $("#fetch").html(data);
@@ -224,7 +226,13 @@
                     $("#show").html(data);
                 }
             })
-        })
+        }); 
+
+        const hideAlert = () => {
+            setTimeout(() => {
+                $(".alert").css('display', 'none');
+            }, 3000);
+        };
     </script>
 </body>
 
