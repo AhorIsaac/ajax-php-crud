@@ -27,9 +27,9 @@ $rows = $model->fetch();
                     <td> <?php echo $row["title"]; ?> </td>
                     <td> <?php echo $row["description"]; ?> </td>
                     <td>
-                        <a href="#" id="read-<?php echo $row['id'] ?>" class="badge badge-info read-record" value="<?php echo $row["id"] ?>" onclick="readRecord(<?php echo $row['id'] ?>)"> Read </a>
-                        <a href="#" id="del-<?php echo $row['id'] ?>" class="badge badge-danger delete-record" value="<?php echo $row["id"] ?>" onclick="deleteRecord(<?php echo $row['id'] ?>);"> Delete </a>
-                        <a href="#" id="edit-<?php echo $row['id'] ?>" class="badge badge-warning edit-record" value="<?php echo $row["id"] ?>" onclick="editRecord(<?php echo $row['id'] ?>)"> Edit </a>
+                        <a href="#" id="read-<?php echo $row['id'] ?>" class="badge badge-info read-record" onclick="readRecord(<?php echo $row['id'] ?>)"> Read </a>
+                        <a href="#" id="del-<?php echo $row['id'] ?>" class="badge badge-danger delete-record" onclick="deleteRecord(<?php echo $row['id'] ?>);"> Delete </a>
+                        <a href="#" id="edit-<?php echo $row['id'] ?>" class="badge badge-warning edit-record" onclick="editRecord(<?php echo $row['id'] ?>)"> Edit </a>
                     </td>
                 </tr>
         <?php
