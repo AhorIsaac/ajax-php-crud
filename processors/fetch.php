@@ -22,7 +22,7 @@ $rows = $model->fetch();
         if (!empty($rows)) {
             foreach ($rows as $row) {
         ?>
-                <tr>
+                <tr class="lead">
                     <td> <?php echo $i++; ?> </td>
                     <td> <?php echo $row["title"]; ?> </td>
                     <td> <?php echo $row["description"]; ?> </td>
