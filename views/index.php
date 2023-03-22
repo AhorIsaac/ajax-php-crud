@@ -164,22 +164,19 @@
         }
 
         // Read 
-        $(document).on("click", "#read", function(e) {
-            e.preventDefault();
-
-            var read_id = $(this).attr("value");
-
+        const readRecord = (id) => {
             $.ajax({
-                url: "read.php",
+                url: "../processors/read.php",
                 type: "post",
                 data: {
-                    read_id: read_id
+                    read_id: id
                 },
                 success: function(data) {
                     $("#read_data").html(data);
+                    $("#exampleModal").modal('show');
                 }
             });
-        });
+        }
 
         // Edit Record 
         $(document).on("click", "#edit", function(e) {
