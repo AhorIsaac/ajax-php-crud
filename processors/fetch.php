@@ -27,9 +27,9 @@ $rows = $model->fetch();
                     <td> <?php echo $row["title"]; ?> </td>
                     <td> <?php echo $row["description"]; ?> </td>
                     <td>
-                        <a href="#" id="read" class="badge badge-info" value="<?php echo $row["id"] ?>" data-toggle="modal" data-target="#exampleModal"> Read </a>
-                        <a href="#" id="del" class="badge badge-danger" value="<?php echo $row["id"] ?>"> Delete </a>
-                        <a href="#" id="edit" class="badge badge-warning" value="<?php echo $row["id"] ?>" data-toggle="modal" data-target="#editModal"> Edit </a>
+                        <a href="#" id="read-<?php echo $row['id'] ?>" class="badge badge-info read-record" value="<?php echo $row["id"] ?>" data-toggle="modal" data-target="#exampleModal"> Read </a>
+                        <a href="#" id="del-<?php echo $row['id'] ?>" class="badge badge-danger delete-record" value="<?php echo $row["id"] ?>" onclick="deleteRecord(<?php echo $row['id'] ?>);"> Delete </a>
+                        <a href="#" id="edit-<?php echo $row['id'] ?>" class="badge badge-warning edit-record" value="<?php echo $row["id"] ?>" data-toggle="modal" data-target="#editModal"> Edit </a>
                     </td>
                 </tr>
         <?php

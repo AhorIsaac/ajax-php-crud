@@ -143,29 +143,25 @@
         fetch();
 
         // Delete Record 
-        $(document).on("click", "#del", function(e) {
-            e.preventDefault();
-
+        const deleteRecord = (id) => {
             if (window.confirm("do you want to delete this record?")) {
 
-                var del_id = $(this).attr("value");
-
                 $.ajax({
-                    url: "del.php",
-                    type: "post",
+                    url: "../processors/del.php",
+                    type: "POST",
                     data: {
-                        del_id: del_id
+                        del_id: id,
                     },
-                    success: function(data) {
+                    success: (data) => {
                         fetch();
                         $("#show").html(data);
                     }
                 });
+                hideAlert();
             } else {
                 return false;
             }
-
-        });
+        }
 
         // Read 
         $(document).on("click", "#read", function(e) {
@@ -226,7 +222,7 @@
                     $("#show").html(data);
                 }
             })
-        }); 
+        });
 
         const hideAlert = () => {
             setTimeout(() => {
