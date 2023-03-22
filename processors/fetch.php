@@ -29,7 +29,7 @@ $rows = $model->fetch();
                     <td>
                         <a href="#" id="read-<?php echo $row['id'] ?>" class="badge badge-info read-record" value="<?php echo $row["id"] ?>" onclick="readRecord(<?php echo $row['id'] ?>)"> Read </a>
                         <a href="#" id="del-<?php echo $row['id'] ?>" class="badge badge-danger delete-record" value="<?php echo $row["id"] ?>" onclick="deleteRecord(<?php echo $row['id'] ?>);"> Delete </a>
-                        <a href="#" id="edit-<?php echo $row['id'] ?>" class="badge badge-warning edit-record" value="<?php echo $row["id"] ?>" data-toggle="modal" data-target="#editModal"> Edit </a>
+                        <a href="#" id="edit-<?php echo $row['id'] ?>" class="badge badge-warning edit-record" value="<?php echo $row["id"] ?>" onclick="editRecord(<?php echo $row['id'] ?>)"> Edit </a>
                     </td>
                 </tr>
         <?php

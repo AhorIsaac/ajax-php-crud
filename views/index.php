@@ -179,22 +179,20 @@
         }
 
         // Edit Record 
-        $(document).on("click", "#edit", function(e) {
-            e.preventDefault();
-
-            var edit_id = $(this).attr("value");
-
+        const editRecord = (id) => {
+            
             $.ajax({
-                url: "edit.php",
+                url: "../processors/edit.php",
                 type: "post",
                 data: {
-                    edit_id: edit_id
+                    edit_id: id
                 },
                 success: function(data) {
                     $("#edit_data").html(data);
+                    $("#editModal").modal('show');
                 }
             });
-        });
+        }
 
         // Update Record 
         $(document).on("click", "#update", function(e) {
@@ -206,7 +204,7 @@
             var edit_id = $("#edit_id").val();
 
             $.ajax({
-                url: "update.php",
+                url: "../processors/update.php",
                 type: "post",
                 data: {
                     edit_id: edit_id,
@@ -217,8 +215,10 @@
                 success: function(data) {
                     fetch();
                     $("#show").html(data);
+                    $("#editModal").modal('hide');
                 }
-            })
+            });
+            hideAlert();
         });
 
         const hideAlert = () => {
